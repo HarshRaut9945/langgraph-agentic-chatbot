@@ -15,6 +15,14 @@ def add_thread(thread_id):
     if thread_id not in st.session_state["chat_threads"]:
         st.session_state["chat_threads"].append(thread_id)
 
+# Every time you start a new chat,
+
+# you add it to this list.
+
+# Without this function,
+
+# your sidebar would never know previous conversations exist.
+
 
 
 # Create a completely new chat conversation
@@ -222,3 +230,33 @@ if user_input:
         "role": "assistant",
         "content": ai_message
     })
+
+
+#     Start App
+#       │
+#       ▼
+# Create thread_id (if first time)
+#       │
+#       ▼
+# Store it in Streamlit session
+#       │
+#       ▼
+# User asks question
+#       │
+#       ▼
+# Send question + thread_id
+#       │
+#       ▼
+# LangGraph saves conversation
+#       │
+#       ▼
+# Later
+#       │
+#       ▼
+# Select old thread
+#       │
+#       ▼
+# Load messages from checkpointer
+#       │
+#       ▼
+# Display previous conversation
