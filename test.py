@@ -1,16 +1,7 @@
-from agentic_chatbot_backend import chatbot
-from langchain_core.messages import BaseMessage, HumanMessage
+import streamlit as st
 
+st.set_page_config(page_title="Test")
 
-CONFIG = {'configurable': {'thread_id': 'thread-1'}}
+st.title("🚀 Streamlit Working")
 
-
-
-for message_chunk, metadata in chatbot.stream(
-    {'messages': [HumanMessage(content="Generate a blog about Machine learning")]},
-    config= CONFIG,
-    stream_mode= 'messages'):
-
-    if message_chunk.content:
-        print(message_chunk.content, end=" ", flush=True)
-    
+st.write("If you can see this, Streamlit is working correctly.")
